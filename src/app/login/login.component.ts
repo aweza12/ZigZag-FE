@@ -14,7 +14,7 @@ export class LoginComponent {
 
   public login = (form: NgForm) => {
     const credentials = JSON.stringify(form.value);
-    this.http.post("http://localhost:5000/api/auth/login", credentials, {
+    this.http.post("http://localhost:8080/login", credentials, {
       headers: new HttpHeaders({
         "Content-Type": "application/json"
       })
