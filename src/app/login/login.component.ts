@@ -1,30 +1,25 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpService } from '../http/http.service';
 import { Component } from '@angular/core';
 import { Router } from "@angular/router";
 import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'login',
-  templateUrl: './login.component.html'
+  templateUrl: './login.component.html',
+  providers: [HttpService]
 })
 export class LoginComponent {
   invalidLogin: boolean = true;
 
-  constructor(private router: Router, private http: HttpClient) { }
+  constructor(private router: Router, private httpService: HttpService) { }
 
   public login = (form: NgForm) => {
     const credentials = JSON.stringify(form.value);
-    this.http.post("http://localhost:8080/login", credentials, {
-      headers: new HttpHeaders({
-        "Content-Type": "application/json"
-      })
-    }).subscribe(response => {
-      const token = (<any>response).token;
-      localStorage.setItem("jwt", token);
-      this.invalidLogin = false;
-      this.router.navigate(["/"]);
-    }, err => {
-      this.invalidLogin = true;
-    });
+
+    this.invalidLogin = !this.httpService.login(credentials);
+
+    if(!this.invalidLogin){
+      this.router.navigate(["home"]);
+    }
   }
 }
