@@ -14,6 +14,7 @@ import { BottomComponent } from './bottom/bottom.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { MenuComponent } from './menu/menu.component';
+import { LotsComponent } from './lots/lots.component';
 
 export function tokenGetter() {
   return localStorage.getItem("jwt");
@@ -27,7 +28,8 @@ export function tokenGetter() {
     BottomComponent,
     LoginComponent,
     HomeComponent,
-    MenuComponent
+    MenuComponent,
+    LotsComponent
   ],
   imports: [
     BrowserModule,
@@ -38,6 +40,7 @@ export function tokenGetter() {
       { path: '', component: HomeComponent },
       { path: 'home', component: HomeComponent },
       { path: 'login', component: LoginComponent },
+      { path: 'lots', component: LotsComponent},
     ]),
     JwtModule.forRoot({
       config: {
