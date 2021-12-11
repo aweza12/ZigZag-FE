@@ -13,6 +13,7 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { BottomComponent } from './bottom/bottom.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
+import { MenuComponent } from './menu/menu.component';
 
 export function tokenGetter() {
   return localStorage.getItem("jwt");
@@ -25,7 +26,8 @@ export function tokenGetter() {
     ProductListComponent,
     BottomComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
