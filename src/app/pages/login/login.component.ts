@@ -1,4 +1,4 @@
-import { HttpService } from '../http/http.service';
+import { HttpService } from '../../http/http.service';
 import { Component } from '@angular/core';
 import { Router } from "@angular/router";
 import { NgForm } from '@angular/forms';
