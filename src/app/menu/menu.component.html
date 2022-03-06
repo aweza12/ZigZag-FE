@@ -1,0 +1,7 @@
+<div class="widget">
+  <ul class="widget-list">
+    <li><a *ngIf="isUserAuthenticated()" routerLink="/lots">Лоти</a></li>
+    <li *ngIf="!isUserAuthenticated()"><a routerLink="/login">Вхід</a></li>
+    <li><a *ngIf="isUserAuthenticated()" class="logout" (click)="logOut()">Вихід</a></li>
+  </ul>
+</div>

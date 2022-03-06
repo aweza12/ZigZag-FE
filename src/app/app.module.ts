@@ -8,13 +8,18 @@ import { JwtModule } from "@auth0/angular-jwt";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { ProductListComponent } from './product-list/product-list.component';
-import { BottomComponent } from './bottom/bottom.component';
-import { LoginComponent } from './login/login.component';
-import { HomeComponent } from './home/home.component';
+import { HeaderComponent } from './pages/shared/header.component';
+import { ProductListComponent } from './pages/product-list/product-list.component';
+import { BottomComponent } from './pages/shared/bottom.component';
+import { LoginComponent } from './pages/login/login.component';
+import { HomeComponent } from './pages/home/home.component';
 import { MenuComponent } from './menu/menu.component';
-import { LotsComponent } from './lots/lots.component';
+import { LotsComponent } from './pages/lots/lots.component';
+import { YourProfileComponent } from './pages/userPages/your-profile/your-profile.component';
+import { YourBidsComponent } from './pages/userPages/your-bids/your-bids.component';
+import { YourLotsComponent } from './pages/userPages/your-lots/your-lots.component';
+import { YourProductsComponent } from './pages/userPages/your-products/your-products.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 export function tokenGetter() {
   return localStorage.getItem("jwt");
@@ -29,19 +34,19 @@ export function tokenGetter() {
     LoginComponent,
     HomeComponent,
     MenuComponent,
-    LotsComponent
+    LotsComponent,
+    YourProfileComponent,
+    YourBidsComponent,
+    YourLotsComponent,
+    YourProductsComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-    RouterModule.forRoot([
-      { path: '', component: HomeComponent },
-      { path: 'home', component: HomeComponent },
-      { path: 'login', component: LoginComponent },
-      { path: 'lots', component: LotsComponent},
-    ]),
+    RouterModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
