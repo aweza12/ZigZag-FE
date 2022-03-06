@@ -1,5 +1,19 @@
-<ul class="lots">
+<!--<ul class="lots">
     <li *ngFor="let lot of lots">
       <span class="badge">{{lot.productName}}</span> {{lot.startPrice}}
     </li>
-</ul>
+</ul>-->
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  <div *ngFor="let lot of lots" class="col">
+    <div class="card h-100">
+      <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp" class="card-img-top" alt="Hollywood Sign on The Hill"/>
+      <div class="card-body">
+        <h5 class="card-title">{{lot.productName}}</h5>
+        <p class="card-text">
+          {{lot.startPrice}}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
