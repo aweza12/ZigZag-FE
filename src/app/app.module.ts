@@ -20,6 +20,7 @@ import { YourBidsComponent } from './pages/userPages/your-bids/your-bids.compone
 import { YourLotsComponent } from './pages/userPages/your-lots/your-lots.component';
 import { YourProductsComponent } from './pages/userPages/your-products/your-products.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 export function tokenGetter() {
   return localStorage.getItem("jwt");
@@ -53,7 +54,8 @@ export function tokenGetter() {
         allowedDomains: ["localhost:5000"],
         disallowedRoutes: []
       }
-    })
+    }),
+    NgbModule
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]
