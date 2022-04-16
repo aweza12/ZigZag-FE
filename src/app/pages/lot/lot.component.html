@@ -1,0 +1,46 @@
+<ul class="list-group">
+    <img class="card-img-top" src="https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp" style="width: 18rem;" alt="Card image cap">
+    <li class="list-group-item">Product name: {{lot.productName}}</li>
+    <li class="list-group-item">Creator name: {{lot.creatorName}}</li>
+    <li class="list-group-item">Product description: {{lot.productDescription}}</li>
+    <li class="list-group-item">Start date: {{lot.startDate}}</li>
+    <li class="list-group-item">End date: {{lot.endDate}}</li>
+    <li class="list-group-item">Start price: {{lot.startPrice}}</li>
+    <li class="list-group-item">Highest price: {{lot.highestPrice}}</li>
+    <li>
+        <h3>Bids: </h3>
+        <ul class="list-group" id="bidList">
+            <div *ngFor="let bid of lot.bids" class="col">
+                <li class="list-group-item">{{bid.betTime}}</li>
+                <li class="list-group-item">{{bid.bidSum}}</li>
+                <li class="list-group-item">{{bid.ownerName}}</li>
+            </div>
+        </ul>
+    </li>
+    <form>
+        <div class="col-md-3">
+            <label for="createBid" class="form-label">Add bid</label>
+            <input type="text" class="form-control" id="createBid" pattern="^[ 0-9]+$" required>
+            <div class="invalid-feedback">
+                Please, enter valid bid.
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Bid</button>
+    </form>
+
+    <form class="form-signin" #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+        <div class="container-fluid">
+            <h2 class="form-signin-heading">Login</h2>
+            <div *ngIf="invalidLogin" class="alert alert-danger">Invalid username or password.</div>
+            <br/>
+            <label for="login" class="sr-only">Email address</label>
+            <input type="email" id="login" name="login" ngModel class="form-control" placeholder="User Name" required autofocus>
+            <br/>
+            <label for="password" class="sr-only">Password</label>
+            <input type="password" id="password" name="password" ngModel class="form-control" placeholder="Password" required>
+            <br/>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        </div>
+      </form>
+
+  </ul>

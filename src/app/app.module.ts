@@ -21,6 +21,8 @@ import { YourLotsComponent } from './pages/userPages/your-lots/your-lots.compone
 import { YourProductsComponent } from './pages/userPages/your-products/your-products.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { LotComponent } from './pages/lot/lot.component';
+import { CreateBidComponent } from './pages/create-bid/create-bid.component';
 
 export function tokenGetter() {
   return localStorage.getItem("jwt");
@@ -40,7 +42,9 @@ export function tokenGetter() {
     YourBidsComponent,
     YourLotsComponent,
     YourProductsComponent,
-    ProfileComponent
+    ProfileComponent,
+    LotComponent,
+    CreateBidComponent
   ],
   imports: [
     BrowserModule,

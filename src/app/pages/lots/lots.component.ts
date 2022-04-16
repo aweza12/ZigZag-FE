@@ -20,10 +20,10 @@ export class LotsComponent implements OnInit {
   //public lots = this.httpService.getLots();
 
   ngOnInit() {
-    this.getHeroes();
+    this.getLots();
   }
 
-  getHeroes(): void {
+  getLots(): void {
     this.httpService.getLots()
     .subscribe(lots => this.lots = (<any>lots).content);
   }

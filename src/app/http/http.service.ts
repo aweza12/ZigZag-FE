@@ -39,6 +39,14 @@ export class HttpService{
       });
     }
 
+    public getLotById(id: number): Observable<Lot>{
+      return this.Get(environment.apiUrl + "lots/" + id, {
+        headers: new HttpHeaders({
+          "Content-Type": "application/json"
+        })
+      });
+    }
+
     private Post(url: string, body: any, options?: any): Observable<any>{
       if(!options){
         options = {};

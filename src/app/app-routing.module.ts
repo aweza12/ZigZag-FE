@@ -18,12 +18,14 @@ import { YourBidsComponent } from './pages/userPages/your-bids/your-bids.compone
 import { YourLotsComponent } from './pages/userPages/your-lots/your-lots.component';
 import { YourProductsComponent } from './pages/userPages/your-products/your-products.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { LotComponent } from './pages/lot/lot.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full'},
   { path: 'home', component: HomeComponent , children: [
     { path: 'lots', component: LotsComponent},
+    { path: 'lot/:id', component: LotComponent},
     { path: 'products', component: LotsComponent},
     { path: 'profile', component: ProfileComponent, children: [
       { path: 'yourBids', component: YourBidsComponent, canActivate: [AuthGuard]},

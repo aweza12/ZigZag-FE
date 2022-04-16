@@ -1,3 +1,5 @@
+import { Bid } from "./bid";
+
 export class Lot {
   id: number;
   creatorId: number;
@@ -11,6 +13,6 @@ export class Lot {
   highestPrice: number;
   winnerId: number;
   winnerName: string;
-  bets: [];
+  bids: Bid[];
   active: boolean;
 }
