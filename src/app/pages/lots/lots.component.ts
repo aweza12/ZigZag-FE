@@ -1,21 +1,20 @@
-import { LOTS } from '../../mocks/mock-lots';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Lot } from '../../models/lot';
-import { HttpService } from '../../http/http.service';
+import { HttpService } from '../../services/http/http.service';
+import { LotService } from 'src/app/services/lot/lot.service';
 
 @Component({
   selector: 'app-lots',
   templateUrl: './lots.component.html',
   styleUrls: ['./lots.component.scss'],
-  providers: [HttpService]
+  providers: [LotService, HttpService]
 })
 export class LotsComponent implements OnInit {
 
-  //lots = LOTS;
   lots: Lot[];
 
-  constructor(private router: Router, private httpService: HttpService) { }
+  constructor(private router: Router, private lotService: LotService) { }
 
   //public lots = this.httpService.getLots();
 
@@ -24,7 +23,7 @@ export class LotsComponent implements OnInit {
   }
 
   getLots(): void {
-    this.httpService.getLots()
+    this.lotService.getLots()
     .subscribe(lots => this.lots = (<any>lots).content);
   }
 

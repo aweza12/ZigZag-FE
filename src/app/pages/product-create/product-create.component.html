@@ -1,0 +1,29 @@
+<p>product-create works!</p>
+
+<form id="ProductCreateForm" class="form-signin" #createForm="ngForm" (ngSubmit)="create(createForm)">
+    <div class="container-fluid">
+        <h2 class="form-signin-heading">Створити нову аптеку</h2>
+        <div *ngIf="invalidProduct" class="alert alert-danger">{{invalidProductMessage}}</div>
+        <br/>
+
+        <label for="Name" class="sr-only">Name</label>
+        <input type="text" id="Name" name="Name" ngModel class="form-control" placeholder="Name" required autofocus>
+        <div class="alert alert-danger"
+            *ngIf="createForm.controls['Name'].invalid && createForm.controls['Name'].touched">
+            Please enter product name
+        </div>
+        <br/>
+
+        <label for="Description" class="sr-only">Description</label>
+        <input type="text" id="Description" name="Description" ngModel class="form-control" placeholder="Description" required>
+        <div class="alert alert-danger"
+            *ngIf="createForm.controls['Description'].invalid && createForm.controls['Description'].touched">
+            Please enter product description
+        </div>
+        <br/>
+
+        <button [disabled]="createForm.invalid" id="ProductCreateButton" class="btn btn-lg btn-primary btn-block" type="submit">Create product</button>
+    </div>
+</form>
+
+<input type="button" onclick="location.href='/home'" value="Назад" />

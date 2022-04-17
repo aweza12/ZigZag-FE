@@ -19,6 +19,7 @@ import { YourLotsComponent } from './pages/userPages/your-lots/your-lots.compone
 import { YourProductsComponent } from './pages/userPages/your-products/your-products.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { LotComponent } from './pages/lot/lot.component';
+import { ProductCreateComponent } from './pages/product-create/product-create.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -27,6 +28,7 @@ const routes: Routes = [
     { path: 'lots', component: LotsComponent},
     { path: 'lot/:id', component: LotComponent},
     { path: 'products', component: LotsComponent},
+    { path: 'productCreate', component: ProductCreateComponent, canActivate: [AuthGuard]},
     { path: 'profile', component: ProfileComponent, children: [
       { path: 'yourBids', component: YourBidsComponent, canActivate: [AuthGuard]},
       { path: 'yourLots', component: YourLotsComponent, canActivate: [AuthGuard]},

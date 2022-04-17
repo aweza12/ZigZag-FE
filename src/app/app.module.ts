@@ -23,6 +23,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LotComponent } from './pages/lot/lot.component';
 import { CreateBidComponent } from './pages/create-bid/create-bid.component';
+import { ProductCreateComponent } from './pages/product-create/product-create.component';
 
 export function tokenGetter() {
   return localStorage.getItem("jwt");
@@ -44,7 +45,8 @@ export function tokenGetter() {
     YourProductsComponent,
     ProfileComponent,
     LotComponent,
-    CreateBidComponent
+    CreateBidComponent,
+    ProductCreateComponent
   ],
   imports: [
     BrowserModule,

@@ -1,21 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router} from '@angular/router';
-import { HttpService } from 'src/app/http/http.service';
+import { HttpService } from 'src/app/services/http/http.service';
 import { Lot } from 'src/app/models/lot';
 import { Bid } from '../../models/bid';
+import { LotService } from 'src/app/services/lot/lot.service';
 
 @Component({
   selector: 'app-lot',
   templateUrl: './lot.component.html',
   styleUrls: ['./lot.component.scss'],
-  providers: [HttpService]
+  providers: [LotService, HttpService]
 })
 export class LotComponent implements OnInit {
 
   id: number;
   lot: Lot;
 
-  constructor(private router: Router, private activateRoute: ActivatedRoute, private httpService: HttpService){
+  constructor(private router: Router, private activateRoute: ActivatedRoute, private lotService: LotService){
          
       this.id = activateRoute.snapshot.params['id'];
   }
@@ -25,7 +26,7 @@ export class LotComponent implements OnInit {
   }
 
   getLotById(id: number): void {
-    this.httpService.getLotById(id)
+    this.lotService.getLotById(id)
     .subscribe(lot => this.lot = <any>lot);
   }
 }
