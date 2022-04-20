@@ -1,7 +1,7 @@
 import { AuthGuard } from './guards/auth-guard.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { JwtModule } from "@auth0/angular-jwt";
@@ -24,6 +24,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LotComponent } from './pages/lot/lot.component';
 import { CreateBidComponent } from './pages/create-bid/create-bid.component';
 import { ProductCreateComponent } from './pages/product-create/product-create.component';
+import { LotCreateComponent } from './pages/lot-create/lot-create.component';
 
 export function tokenGetter() {
   return localStorage.getItem("jwt");
@@ -46,7 +47,8 @@ export function tokenGetter() {
     ProfileComponent,
     LotComponent,
     CreateBidComponent,
-    ProductCreateComponent
+    ProductCreateComponent,
+    LotCreateComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +63,8 @@ export function tokenGetter() {
         disallowedRoutes: []
       }
     }),
-    NgbModule
+    NgbModule,
+    ReactiveFormsModule      
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]

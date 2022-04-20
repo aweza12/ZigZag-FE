@@ -19,4 +19,8 @@ export class LotService{
     public getLotById(id: number): Observable<Lot>{
       return this.httpService.Get(environment.apiUrl + "lots/" + id);
     }
+
+    public createLot(productId: number, startPrice: number){
+      return this.httpService.Post(environment.apiUrl + "lots/?productId=" + productId + "&startPrice=" + startPrice, {});
+    }
 }

@@ -2,7 +2,7 @@
 
 <form id="ProductCreateForm" class="form-signin" #createForm="ngForm" (ngSubmit)="create(createForm)">
     <div class="container-fluid">
-        <h2 class="form-signin-heading">Створити нову аптеку</h2>
+        <h2 class="form-signin-heading">Create new product</h2>
         <div *ngIf="invalidProduct" class="alert alert-danger">{{invalidProductMessage}}</div>
         <br/>
 

@@ -8,15 +8,15 @@ import { environment } from 'src/environments/environment';
 import { HttpService } from '../http/http.service';
 
 @Injectable()
-export class LotService{
+export class BidService{
 
     constructor(private httpService: HttpService, private http: HttpClient){ }
 
-    public getLots(): Observable<Lot[]>{
+    public getBids(): Observable<Lot[]>{
       return this.httpService.Get(environment.apiUrl + "lots");
     }
 
-    public getLotById(id: number): Observable<Lot>{
+    public getBidById(id: number): Observable<Lot>{
       return this.httpService.Get(environment.apiUrl + "lots/" + id);
     }
 }
