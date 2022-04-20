@@ -17,15 +17,24 @@
             </div>
         </ul>
     </li>
-    <form>
-        <div class="col-md-3">
-            <label for="createBid" class="form-label">Add bid</label>
-            <input type="text" class="form-control" id="createBid" pattern="^[ 0-9]+$" required>
-            <div class="invalid-feedback">
-                Please, enter valid bid.
+</ul>
+
+    <form id="BidCreateForm" class="form-signin" #createForm="ngForm" (ngSubmit)="createBid(createForm)">
+        <div class="container-fluid">
+            <h2 class="form-signin-heading">Create new bid</h2>
+            <div *ngIf="invalidBid" class="alert alert-danger">{{invalidBidMessage}}</div>
+            <br/>
+    
+            <label for="Sum" class="sr-only">Bid</label>
+            <input type="number" id="Sum" name="Sum" ngModel class="form-control" placeholder="Bid" required>
+            <div class="alert alert-danger"
+                *ngIf="createForm.controls['Sum'].invalid && createForm.controls['Sum'].touched">
+                Please enter your bid
             </div>
+            <br/>
+    
+            <button [disabled]="createForm.invalid" id="BidCreateButton" class="btn btn-lg btn-primary btn-block" type="submit">Create Bid</button>
         </div>
-        <button type="submit" class="btn btn-primary">Bid</button>
     </form>
 
     <!--<form class="form-signin" #loginForm="ngForm" (ngSubmit)="login(loginForm)">
@@ -43,4 +52,4 @@
         </div>
       </form>-->
 
-  </ul>
+

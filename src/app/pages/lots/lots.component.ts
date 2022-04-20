@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Lot } from '../../models/lot';
 import { HttpService } from '../../services/http/http.service';
 import { LotService } from 'src/app/services/lot/lot.service';
+import { BidService } from 'src/app/services/bid/bid.service';
 
 @Component({
   selector: 'app-lots',
