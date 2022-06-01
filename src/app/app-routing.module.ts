@@ -6,7 +6,6 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { JwtModule } from "@auth0/angular-jwt";
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './pages/shared/header/header.component';
 import { ProductListComponent } from './pages/product-list/product-list.component';
 import { BottomComponent } from './pages/shared/footer/bottom.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -25,7 +24,8 @@ import { LotCreateComponent } from './pages/lot-create/lot-create.component';
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full'},
-  { path: 'home', component: HomeComponent , children: [
+  { path: 'home', component: HomeComponent, children: [
+    { path: '', redirectTo: 'lots', pathMatch: 'full' },
     { path: 'lots', component: LotsComponent},
     { path: 'lot/:id', component: LotComponent},
     { path: 'lotCreate', component: LotCreateComponent, canActivate: [AuthGuard]},

@@ -1,0 +1,41 @@
+.formElem > * {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.formArticle {
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.formText {
+    font-size: 18px;
+}
+
+.formHref{
+    color: #ED7A2F;
+    outline: none;
+}
+
+.formInput{
+    width: 100%;
+
+    font-size: 14px;
+    padding: 12px;
+    border-radius: 8px;
+    background-color: #EAEAEA;
+
+    border: none;
+    resize: none;
+    outline: none;
+}
+
+.formButton {
+    width: 160px;
+    font-size: 14px;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    background-color: #1F2A8E;
+    color: white;
+}

@@ -1,14 +1,30 @@
-<form class="form-signin" #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+<nav class="navbar navbar-expand-lg navbar-light">
   <div class="container-fluid">
-      <h2 class="form-signin-heading">Login</h2>
-      <div *ngIf="invalidLogin" class="alert alert-danger">Invalid username or password.</div>
-      <br/>
-      <label for="login" class="sr-only">Email address</label>
-      <input type="email" id="login" name="login" ngModel class="form-control" placeholder="User Name" required autofocus>
-      <br/>
-      <label for="password" class="sr-only">Password</label>
-      <input type="password" id="password" name="password" ngModel class="form-control" placeholder="Password" required>
-      <br/>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-  </div>
-</form>
+    <a class="navbar-brand" routerLink="/home">
+      <img src="../assets/img/ZigZag_Logo.png" width="173" height="58" alt="ZigZag Logo">
+    </a>
+    </div>
+</nav>
+
+<div class="d-flex justify-content-center align-items-center" style="height:35rem;">
+  <form class="form-signin" #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+    <div class="formElem">
+        <p class="formArticle">Login to your account</p>
+        <div *ngIf="invalidLogin" class="alert alert-danger">Invalid username or password.</div>
+        <br>
+        <label for="Username" class="formText">Username</label>
+        <br>
+        <input type="Username" id="Username" name="Username" ngModel class="formInput" placeholder="User Name" required autofocus>
+        <br/>
+        <label for="Password" class="formText">Password   <a href="" class="formHref">Forgot?</a></label>
+        <br>
+        <input type="Password" id="Password" name="Password" ngModel class="formInput" placeholder="Password" required>
+        <br/>
+        <button class="formButton" type="submit">Sign in</button>
+        <br>
+        <a href="" class="formText formHref">Not a member? Create account</a>
+    </div>
+  </form>
+</div>
+
+<app-bottom></app-bottom>

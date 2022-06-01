@@ -15,20 +15,28 @@ export class UserService{
 
     constructor(private httpService: HttpService, private http: HttpClient){ }
 
-    public login(credentials: string): boolean{
-        this.httpService.LoginPost(environment.apiUrl + "login", credentials, {
-          headers: new HttpHeaders({
-            "Content-Type": "application/json"
-          })
-        }).subscribe(response => {
-          const token = (<any>response).token;
-          localStorage.setItem("jwt", token);
-          return true;
-        }, err => {
-          return false;
-        });
+    // public login(credentials: string): boolean{
+    //     this.httpService.LoginPost(environment.apiUrl + "login", credentials, {
+    //       headers: new HttpHeaders({
+    //         "Content-Type": "application/json"
+    //       })
+    //     }).subscribe(response => {
+    //       const token = (<any>response).token;
+    //       localStorage.setItem("jwt", token);
+    //       return true;
+    //     }, err => {
+    //       return false;
+    //     });
   
-        return true;
+    //     return false;
+    // }
+
+    public login(login: string, password: string): Observable<any>{
+      const credentials = JSON.stringify({
+        login: login,
+        password: password
+      });
+      return this.httpService.LoginPost(environment.apiUrl + "login", credentials);
     }
 
     public getCurrentUser() : CurrentUser {

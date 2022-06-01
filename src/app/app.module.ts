@@ -8,7 +8,6 @@ import { JwtModule } from "@auth0/angular-jwt";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './pages/shared/header/header.component';
 import { ProductListComponent } from './pages/product-list/product-list.component';
 import { BottomComponent } from './pages/shared/footer/bottom.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -33,7 +32,6 @@ export function tokenGetter() {
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
     ProductListComponent,
     BottomComponent,
     LoginComponent,
